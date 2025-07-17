@@ -44,27 +44,10 @@ public class BaseTest {
 
         switch (browser.toLowerCase()) {
             case "chrome":
-                ChromeOptions chromeOptions = new ChromeOptions();
-                if (Objects.equals(remote, "true")) {
-                    chromeOptions.addArguments("--headless=new");
-                    localDriver = new ChromeDriver(chromeOptions);
-                    Map<String, Object> coordinates = new HashMap<>();
-                    coordinates.put("latitude", 31.2156);
-                    coordinates.put("longitude", 29.9553);
-                    coordinates.put("accuracy", 100);
-                    ((ChromeDriver) localDriver).executeCdpCommand("Emulation.setGeolocationOverride", coordinates);
-                } else {
-                    localDriver = new ChromeDriver();
-                }
+                localDriver = new ChromeDriver();
                 break;
             case "edge":
-                EdgeOptions edgeOptions = new EdgeOptions();
-                if (Objects.equals(remote, "true")) {
-                    edgeOptions.addArguments("--headless=new");
-                    localDriver = new EdgeDriver(edgeOptions);
-                } else {
-                    localDriver = new EdgeDriver();
-                }
+                localDriver = new EdgeDriver();
                 break;
             case "firefox":
                 localDriver = new FirefoxDriver();

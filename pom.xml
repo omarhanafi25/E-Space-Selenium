@@ -52,31 +52,6 @@
           <testFailureIgnore>true</testFailureIgnore>
         </configuration>
       </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-resources-plugin</artifactId>
-        <version>3.3.1</version> <!-- Use the latest version -->
-        <executions>
-          <execution>
-            <id>copy-report-back</id>
-            <phase>verify</phase> <!-- Run during the verify phase -->
-            <goals>
-              <goal>copy-resources</goal>
-            </goals>
-            <configuration>
-              <outputDirectory>src/main/SurefireReports</outputDirectory>
-              <resources>
-                <resource>
-                  <directory>target/surefire-reports</directory>
-                  <includes>
-                    <include>emailable-report.html</include>
-                  </includes>
-                </resource>
-              </resources>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
     </plugins>
   </build>
 </project>
