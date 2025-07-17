@@ -12,13 +12,8 @@ This project is a **Selenium-based UI test automation framework** for testing [O
 - **Test Framework**: TestNG
 - **Build Tool**: Maven
 - **Reporting**: ExtentReports
-- **Plugin**: Maven Surefire Plugin
 
 ---
-
-
-
-
 
 ## ⚙️ Setup Instructions
 
@@ -27,15 +22,30 @@ This project is a **Selenium-based UI test automation framework** for testing [O
 - ✅ Java **21** installed and configured (`java -version`)
 - ✅ Maven installed (`mvn -version`)
 - ✅ IDE like IntelliJ or Eclipse (recommended)
-- ✅ Chrome browser 
+- ✅ Chrome browser (default browser)
 
 ---
 
 ## ▶️ How to Run the Tests
 
+
 ### 1️⃣ Option A: Run from Terminal (Recommended)
 
-From the root project directory, run:
+Navigate to the root directory of the project and execute the following command to run the test suite:
+
+```bash
+mvn clean verify -Dbrowser=<browser_name>
+```
+
+Replace `<browser_name>` with one of the supported browser values:  
+`chrome`, `firefox`, `edge`, or `safari`.
+
+> Example:
+```bash
+mvn clean verify -Dbrowser=firefox
+```
+
+If no browser is specified, the tests will default to running on **Chrome**:
 
 ```bash
 mvn clean verify
@@ -79,23 +89,3 @@ The framework uses the **Page Object Model (POM)**:
 - Each page has its own Java class.
 - Clean separation of logic and test steps.
 - Reusability and maintainability.
-
-
-```
-
----
-
-## ✅ Notes
-
-- Test target: [https://opensource-demo.orangehrmlive.com/](https://opensource-demo.orangehrmlive.com/)
-- You can extend tests for modules like login, PIM, leave, etc.
-- Browser drivers can be managed using WebDriverManager or added manually.
-
----
-
-## 👨‍💻 Author
-
-- Omar Nabil 
-- omarhefni25@gmail.com
-
----
